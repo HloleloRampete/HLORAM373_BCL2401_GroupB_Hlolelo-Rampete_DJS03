@@ -68,11 +68,6 @@ const applyTheme = (theme) => {
   );
 };
 
-// Applying theme based on user's preferred color scheme
-applyTheme(
-  window.matchMedia("(prefers-color-scheme: dark)").matches ? "night" : "day"
-);
-
 // Function to update "show more" button text & value
 const updateShowMoreButton = () => {
   const remainingBooks = matches.length - page * BOOKS_PER_PAGE;
@@ -178,7 +173,6 @@ const openOverlay = (selector, focusSelector = null) => {
       page++;
       updateShowMoreButton();
     });
-    
   
   // Click event listener for book reviews
   getElement("[data-list-items]").addEventListener("click", (event) => {
