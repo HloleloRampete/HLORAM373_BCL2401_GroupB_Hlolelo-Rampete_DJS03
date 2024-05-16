@@ -73,7 +73,7 @@ applyTheme(
   window.matchMedia("(prefers-color-scheme: dark)").matches ? "night" : "day"
 );
 
-// Function to update "show more" button text & state
+// Function to update "show more" button text & value
 const updateShowMoreButton = () => {
   const remainingBooks = matches.length - page * BOOKS_PER_PAGE;
   const button = getElement("[data-list-button]");
@@ -83,7 +83,6 @@ const updateShowMoreButton = () => {
         remainingBooks > 0 ? remainingBooks : 0
       })</span>
     `;
-  button.disabled = remainingBooks <= 0;
 };
 
 // Updating "Show more" button initially
