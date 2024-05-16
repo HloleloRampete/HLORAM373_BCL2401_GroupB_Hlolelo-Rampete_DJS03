@@ -148,7 +148,7 @@ const openOverlay = (selector, focusSelector = null) => {
     closeOverlay("[data-settings-overlay]");
   });
   
-  // Submit event listener for search form
+  // Adding event listener to Submit for search form
   getElement("[data-search-form]").addEventListener("submit", (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
