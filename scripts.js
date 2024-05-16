@@ -169,17 +169,16 @@ const openOverlay = (selector, focusSelector = null) => {
     closeOverlay("[data-search-overlay]");
   });
   
-  // Click event listener for "show more" button
+  // Added event listener to preview books
   getElement("[data-list-button]").addEventListener("click", () => {
-    createBookPreviews()
-    const start = (page - 1) * BOOKS_PER_PAGE;
-    const end = start + BOOKS_PER_PAGE;
     createBookPreviews(
-      matches.slice(start, end),
-      getElement("[data-list-items]")
-    );
-    updateShowMoreButton();
-  });
+        matches.slice(page * BOOKS_PER_PAGE, (page + 1) * BOOKS_PER_PAGE),
+        getElement("[data-list-items]")
+      );
+      page++;
+      updateShowMoreButton();
+    });
+    
   
   // Click event listener for book reviews
   getElement("[data-list-items]").addEventListener("click", (event) => {
