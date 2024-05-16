@@ -139,6 +139,7 @@ const openOverlay = (selector, focusSelector = null) => {
     closeOverlay("[data-list-active]")
   );
   
+  // Submit settings form and close overlay
   getElement("[data-settings-form]").addEventListener("submit", (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
