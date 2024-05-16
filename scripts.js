@@ -171,7 +171,7 @@ const openOverlay = (selector, focusSelector = null) => {
   
   // Click event listener for "show more" button
   getElement("[data-list-button]").addEventListener("click", () => {
-    page++;
+    createBookPreviews()
     const start = (page - 1) * BOOKS_PER_PAGE;
     const end = start + BOOKS_PER_PAGE;
     createBookPreviews(
