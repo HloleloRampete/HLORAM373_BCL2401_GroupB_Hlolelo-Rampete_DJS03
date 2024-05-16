@@ -113,6 +113,7 @@ const openOverlay = (selector, focusSelector = null) => {
     });
   };
   
+  // Adding Eventlisteners 
   // Close search overlay
   getElement("[data-search-cancel]").addEventListener("click", () =>
     closeOverlay("[data-search-overlay]")
