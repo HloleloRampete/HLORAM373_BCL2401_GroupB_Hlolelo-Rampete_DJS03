@@ -54,6 +54,11 @@ const createOptions = (options, defaultOption, container) => {
 createOptions(genres, "All Genres", getElement("[data-search-genres]"));
 createOptions(authors, "All Authors", getElement("[data-search-authors]"));
 
+//check for a stored theme preference in local storage
+const getStoredTheme = () => {
+  return localStorage.getItem("theme") || "day"; // Default to "day" if not found
+};
+
 // Function to apply theme based on user preference
 const applyTheme = (theme) => {
   const isNight = theme === "night";
@@ -139,6 +144,7 @@ getElement("[data-settings-form]").addEventListener("submit", (event) => {
   const formData = new FormData(event.target);
   const { theme } = Object.fromEntries(formData);
   applyTheme(theme);
+  localStorage.setItem("theme", theme);
   closeOverlay("[data-settings-overlay]");
 });
 
@@ -191,3 +197,9 @@ getElement("[data-list-items]").addEventListener("click", (event) => {
     }
   }
 });
+
+//Stored the theme in the local storage
+const initialTheme = getStoredTheme();
+applyTheme(initialTheme);
+localStorage.setItem("theme", initialTheme);
+
